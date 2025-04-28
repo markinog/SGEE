@@ -1,6 +1,9 @@
 spring:
   application:
     name: gestaodeequipamentos
+  data:
+    mongodb:
+      uri: mongodb+srv://sgee:sgee@clustersgee.i6vorx9.mongodb.net/admin?retryWrites=true&w=majority&appName=ClusterSGEE
   datasource:
     url: jdbc:mysql://localhost:3306/test
     username: root
