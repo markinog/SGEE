@@ -18,7 +18,7 @@ public class Funcionario {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer FuncionarioId;
 
     @Column(name = "nome", nullable = false, length = 150)
     private String nome;

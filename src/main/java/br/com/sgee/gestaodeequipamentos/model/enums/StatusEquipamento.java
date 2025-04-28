@@ -1,4 +1,4 @@
-package br.com.sgee.gestaodeequipamentos;
+package br.com.sgee.gestaodeequipamentos.model.enums;
 
 public enum StatusEquipamento {
     DISPONIVEL,

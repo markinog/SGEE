@@ -1,6 +1,6 @@
 package br.com.sgee.gestaodeequipamentos.model;
 
-import br.com.sgee.gestaodeequipamentos.StatusEquipamento;
+import br.com.sgee.gestaodeequipamentos.model.enums.StatusEquipamento;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
