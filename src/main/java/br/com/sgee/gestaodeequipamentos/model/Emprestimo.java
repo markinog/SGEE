@@ -12,7 +12,6 @@ import java.util.List;
 @Table(name = "Emprestimo")
 @Getter
 @Setter
-@Builder
 public class Emprestimo {
 
     @Id
