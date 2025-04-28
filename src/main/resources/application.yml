@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: gestaodeequipamentos
+  datasource:
+    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password: master3226
+    driver-class-name:  com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      #ddl-auto: update
+      ddl-auto: none
+    properties:
+      hibernate.format_sql: true
