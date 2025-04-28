@@ -9,11 +9,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "emprestimo")
+@Table(name = "Emprestimo")
 @Getter
 @Setter
 @Builder
-@Data
 public class Emprestimo {
 
     @Id
@@ -34,4 +33,7 @@ public class Emprestimo {
 
     @Column(name = "dataDevolucao")
     private LocalDateTime dataDevolucao;
+
+    public Emprestimo(){}
+
 }

@@ -3,7 +3,6 @@ package br.com.sgee.gestaodeequipamentos.mapper;
 import br.com.sgee.gestaodeequipamentos.dto.FuncionarioRequest;
 import br.com.sgee.gestaodeequipamentos.dto.FuncionarioResponse;
 import br.com.sgee.gestaodeequipamentos.model.Funcionario;
-import lombok.Builder;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -22,7 +21,7 @@ public class FuncionarioMapper {
     public FuncionarioResponse toResponse(Funcionario funcionario){
 
         return FuncionarioResponse.builder()
-                .id(funcionario.getId())
+                .id(funcionario.getFuncionarioId())
                 .build();
     }
 
