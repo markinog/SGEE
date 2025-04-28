@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 public class FuncionarioService {
 
     private final FuncionarioRepository repository;
-
     private final FuncionarioMapper mapper;
 
     public FuncionarioResponse salvar(FuncionarioRequest request){

@@ -8,6 +8,4 @@ import java.util.List;
 
 public interface EquipamentoRepository extends JpaRepository<Equipamento, Integer> {
 
-    List<Equipamento> findBynomeEquipamentoContainingIgnoreCase(String nomeEquipamento);
-
 }
