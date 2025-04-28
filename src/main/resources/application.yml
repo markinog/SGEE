@@ -1,16 +1,16 @@
 spring:
   application:
     name: gestaodeequipamentos
+
   data:
     mongodb:
       uri: mongodb+srv://sgee:sgee@clustersgee.i6vorx9.mongodb.net/admin?retryWrites=true&w=majority&appName=ClusterSGEE
+
   datasource:
-    url: jdbc:mysql://mysql-3e138b78-testandooooooooooo.l.aivencloud.com
-    port: 17228
-    database: defaultdb
+    url: jdbc:mysql://mysql-3e138b78-testandooooooooooo.l.aivencloud.com:17228/defaultdb
     username: avnadmin
     password: AVNS_0-OpgBW38Ffatt-M0MK
-    driver-class-name:  com.mysql.cj.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     show-sql: true
