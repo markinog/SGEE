@@ -10,6 +10,8 @@ import lombok.*;
 @Entity
 @Table(name = "tipo_equipamento")
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class TipoEquipamento {
 
     @Id
