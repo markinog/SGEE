@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class HistoricoService {
 
-    private HistoricoRepository repository;
+    private final HistoricoRepository repository;
 
     public HistoricoService (HistoricoRepository repository){
         this.repository = repository;

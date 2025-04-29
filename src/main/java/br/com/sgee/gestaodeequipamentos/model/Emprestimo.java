@@ -24,6 +24,8 @@ public class Emprestimo {
     @Column(name = "id_equipamento")
     private Integer equipamento;
 
+
+
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private StatusEmprestimo statusEmprestimo;

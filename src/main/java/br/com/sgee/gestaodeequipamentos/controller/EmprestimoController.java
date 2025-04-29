@@ -1,11 +1,11 @@
 package br.com.sgee.gestaodeequipamentos.controller;
 
 import br.com.sgee.gestaodeequipamentos.dto.EmprestimoRequest;
+import br.com.sgee.gestaodeequipamentos.dto.TipoEquipamentoRequest;
 import br.com.sgee.gestaodeequipamentos.model.Emprestimo;
+import br.com.sgee.gestaodeequipamentos.model.TipoEquipamento;
 import br.com.sgee.gestaodeequipamentos.service.EmprestimoService;
-import br.com.sgee.gestaodeequipamentos.service.HistoricoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,11 +23,9 @@ public class EmprestimoController {
     public EmprestimoService service;
 
 
-
-
     @PostMapping
-    ResponseEntity<List<Emprestimo>> salvar(@RequestBody EmprestimoRequest request) {
-        List<Emprestimo> emprestimos = service.criarEmprestimo(request);
+    ResponseEntity<List<Emprestimo>> salvar(@RequestBody EmprestimoRequest request, TipoEquipamentoRequest tipoEquipamento) {
+        List<Emprestimo> emprestimos = service.criarEmprestimo(request, tipoEquipamento);
         return ResponseEntity.status(HttpStatus.CREATED).body(emprestimos);
     }
 
