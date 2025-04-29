@@ -40,7 +40,7 @@ public class EmprestimoService {
         }
 
         for (Equipamento equipamento : equipamentos) {
-            equipamento.setStatusEquipamento(StatusEquipamento.DISPONIVEL);
+            equipamento.setStatusEquipamento(StatusEquipamento.EM_USO);
         }
         equipamentoRepository.saveAll(equipamentos);
 
@@ -49,13 +49,11 @@ public class EmprestimoService {
         emprestimo.setEquipamentos(equipamentos);
         emprestimo.setDataEmprestimo(LocalDateTime.now());
 
-        Emprestimo emprestimoSalvo = emprestimoRepository.save(emprestimo);
-
-//        for (Equipamento equipamento : equipamentos) {
+        //        for (Equipamento equipamento : equipamentos) {
 //            historicoService.registrarMovimentacao(funcionario, equipamento, "EMPRESTIMO");
 //        }
 
-        return emprestimoSalvo;
+        return emprestimoRepository.save(emprestimo);
     }
 
     public List<Emprestimo> listarTodosEmprestimos() {

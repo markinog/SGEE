@@ -23,7 +23,11 @@ public class Emprestimo {
     @JoinColumn(name = "id_funcionario")
     private Funcionario funcionario;
 
-    @Column(name = "equipamentos", nullable = false, length = 150)
+    @JoinTable(
+            name = "emprestimo_equipamento",
+            joinColumns = @JoinColumn(name = "emprestimo_id"),
+            inverseJoinColumns = @JoinColumn(name = "equipamento_id")
+    )
     @ManyToMany(fetch = FetchType.LAZY)
     private List<Equipamento> equipamentos;
 
