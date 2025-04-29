@@ -11,6 +11,7 @@ import lombok.Setter;
 public class FuncionarioResponse {
 
     private Integer id;
+    private String nome;
 
 
 }

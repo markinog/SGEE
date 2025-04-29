@@ -1,16 +1,21 @@
 package br.com.sgee.gestaodeequipamentos.service;
 
+import br.com.sgee.gestaodeequipamentos.dto.EmprestimoRequest;
 import br.com.sgee.gestaodeequipamentos.dto.EquipamentoRequest;
 import br.com.sgee.gestaodeequipamentos.dto.EquipamentoResponse;
 import br.com.sgee.gestaodeequipamentos.mapper.EquipamentoMapper;
 import br.com.sgee.gestaodeequipamentos.model.Equipamento;
+import br.com.sgee.gestaodeequipamentos.model.enums.StatusEquipamento;
 import br.com.sgee.gestaodeequipamentos.repository.EquipamentoRepository;
 import jakarta.persistence.EntityNotFoundException;
+import jdk.jshell.Snippet;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -49,5 +54,22 @@ public class EquipamentoService {
         }
         equipamentoRepository.deleteById(idEquipamento);
     }
+
+    public List<Equipamento> getEquipamentos(List<Integer> equipamentosIds){
+
+        return equipamentoRepository.findAllById(equipamentosIds);
+
+    }
+
+    public List<Equipamento> salvarEquipamentos(List<Equipamento> equipamentos){
+        return equipamentoRepository.saveAll(equipamentos);
+    }
+
+    public Equipamento atualizarEquipamento(Integer id, StatusEquipamento statusEquipamento){
+        Equipamento equip  = equipamentoRepository.getById(id);
+        equip.setStatusEquipamento(statusEquipamento);
+        return equipamentoRepository.save(equip);
+    }
+
 
 }

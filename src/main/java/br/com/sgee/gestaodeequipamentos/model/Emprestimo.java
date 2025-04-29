@@ -1,12 +1,11 @@
 package br.com.sgee.gestaodeequipamentos.model;
+import br.com.sgee.gestaodeequipamentos.model.enums.StatusEmprestimo;
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Table(name = "Emprestimo")
@@ -19,23 +18,21 @@ public class Emprestimo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "id_funcionario")
-    private Funcionario funcionario;
+    @Column(name = "id_funcionario")
+    private Integer funcionario;
 
-    @JoinTable(
-            name = "emprestimo_equipamento",
-            joinColumns = @JoinColumn(name = "emprestimo_id"),
-            inverseJoinColumns = @JoinColumn(name = "equipamento_id")
-    )
-    @ManyToMany(fetch = FetchType.LAZY)
-    private List<Equipamento> equipamentos;
+    @Column(name = "id_equipamento")
+    private Integer equipamento;
 
-    @Column(name = "dataEmprestimo")
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status")
+    private StatusEmprestimo statusEmprestimo;
+
+    @CreationTimestamp
+    @Column(name = "dataEmprestimo", nullable = false, updatable = false)
     private LocalDateTime dataEmprestimo;
 
-    @Column(name = "dataDevolucao")
-    private LocalDateTime dataDevolucao;
+
 
     public Emprestimo(){}
 

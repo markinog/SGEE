@@ -5,6 +5,8 @@ import br.com.sgee.gestaodeequipamentos.dto.FuncionarioResponse;
 import br.com.sgee.gestaodeequipamentos.model.Funcionario;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class FuncionarioMapper {
 
@@ -19,10 +21,16 @@ public class FuncionarioMapper {
     }
 
     public FuncionarioResponse toResponse(Funcionario funcionario){
-
         return FuncionarioResponse.builder()
                 .id(funcionario.getFuncionarioId())
+                .nome(funcionario.getNome())
                 .build();
+    }
+
+    public List<FuncionarioResponse> toResponseList(List<Funcionario> funcionarios) {
+        return funcionarios.stream()
+                .map(this::toResponse)
+                .toList();
     }
 
 }

@@ -2,9 +2,7 @@ package br.com.sgee.gestaodeequipamentos.model;
 
 import br.com.sgee.gestaodeequipamentos.model.enums.FuncionarioStatus;
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -13,6 +11,8 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Funcionario {
 
     @Id
@@ -27,10 +27,9 @@ public class Funcionario {
     private String matricula;
 
     @Column(name = "status")
+    @Enumerated(EnumType.STRING)
     private FuncionarioStatus status;
 
-    @OneToMany(mappedBy = "funcionario")
-    List<Equipamento> equipamentos;
 
 }
 

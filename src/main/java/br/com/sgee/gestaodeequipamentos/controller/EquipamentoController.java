@@ -4,7 +4,6 @@ import br.com.sgee.gestaodeequipamentos.dto.EquipamentoRequest;
 import br.com.sgee.gestaodeequipamentos.dto.EquipamentoResponse;
 import br.com.sgee.gestaodeequipamentos.service.EquipamentoService;
 import jakarta.persistence.EntityNotFoundException;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/equipamentos")
+@RequestMapping("equipamentos")
 @RequiredArgsConstructor
 public class EquipamentoController {
 
