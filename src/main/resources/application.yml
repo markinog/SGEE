@@ -4,7 +4,7 @@ spring:
 
   data:
     mongodb:
-      uri: mongodb+srv://teste:teste@clustersgee.i6vorx9.mongodb.net/sgee?retryWrites=true&w=majority&appName=ClusterSGEE
+      uri: mongodb+srv://teste:teste@clustersgee.i6vorx9.mongodb.net/sgee ?retryWrites=true&w=majority&appName=ClusterSGEE
 
   datasource:
     url: jdbc:mysql://mysql-3e138b78-testandooooooooooo.l.aivencloud.com:17228/defaultdb

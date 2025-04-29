@@ -14,8 +14,13 @@ public class TipoEquipamento {
     @Column(name = "id_tipo_equipamento")
     private Integer idTipoEquipamento;
 
-    @Column(name = "nome_tipo_equipamento", nullable = false, length = 100)
-    private String nomeTipoEquipamento;
+    @Column(name = "nome_tipo_equipamento")
+    private String nomeEquipamento;
 
+    @Column(name = "nome_tipo_equipamento", insertable=false, updatable=false)
+    private String nomeEquipamentoTipo;
+
+    private int quantidadeTotal;
+    private int quantidadeDisponivel;
 
 }
