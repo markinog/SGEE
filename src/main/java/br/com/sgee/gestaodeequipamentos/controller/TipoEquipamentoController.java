@@ -34,8 +34,8 @@ public class TipoEquipamentoController {
     }
 
     @GetMapping("/{id}")
-    public TipoEquipamento buscarPorTipoId(@PathVariable Integer idTipoEquipamento) {
-        return tipoEquipamentoService.buscarPorTipoId(idTipoEquipamento);
+    public TipoEquipamento buscarPorTipoId(@PathVariable("id") Integer id) {
+        return tipoEquipamentoService.buscarPorTipoId(id);
 }
 
 

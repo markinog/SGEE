@@ -2,9 +2,14 @@ package br.com.sgee.gestaodeequipamentos.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 
-@Data
+@Getter
+@Setter
+@ToString
 @Entity
 @Table(name = "tipo_equipamento")
 public class TipoEquipamento {
@@ -16,9 +21,6 @@ public class TipoEquipamento {
 
     @Column(name = "nome_tipo_equipamento")
     private String nomeEquipamento;
-
-    @Column(name = "nome_tipo_equipamento", insertable=false, updatable=false)
-    private String nomeEquipamentoTipo;
 
     private int quantidadeTotal;
     private int quantidadeDisponivel;
