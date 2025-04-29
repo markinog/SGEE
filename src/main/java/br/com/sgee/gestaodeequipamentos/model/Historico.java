@@ -3,6 +3,7 @@ package br.com.sgee.gestaodeequipamentos.model;
 import br.com.sgee.gestaodeequipamentos.repository.HistoricoRepository;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
@@ -12,11 +13,6 @@ import java.time.LocalDate;
 @Setter
 public class Historico {
 
-    private HistoricoRepository repository;
-
-    public Historico(HistoricoRepository repository){
-        this.repository = repository;
-    }
 
     @Id
     private String id;
