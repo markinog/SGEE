@@ -23,8 +23,4 @@ public class Equipamento {
     @Column(name = "status_equipamento")
     private StatusEquipamento statusEquipamento;
 
-    @ManyToOne
-    @JoinColumn(name = "id_funcionario")
-    private Funcionario funcionario;
-
 }
