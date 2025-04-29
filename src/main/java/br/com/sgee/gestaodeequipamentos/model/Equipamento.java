@@ -27,9 +27,4 @@ public class Equipamento {
     @Enumerated(EnumType.STRING)
     @Column(name = "status_equipamento")
     private StatusEquipamento statusEquipamento;
-
-    @ManyToOne
-    @JoinColumn(name = "id")
-    private Funcionario funcionario;
-
 }
