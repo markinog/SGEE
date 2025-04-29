@@ -20,11 +20,12 @@ public class Equipamento {
     @Column(name = "nome_equipamento", nullable = false, length = 150)
     private String nomeEquipamento;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "status_equipamento")
     private StatusEquipamento statusEquipamento;
 
     @ManyToOne
-    @JoinColumn(name = "id_funcionario")
+    @JoinColumn(name = "id")
     private Funcionario funcionario;
 
 }
