@@ -2,14 +2,17 @@ package br.com.sgee.gestaodeequipamentos.service;
 
 import br.com.sgee.gestaodeequipamentos.dto.EmprestimoRequest;
 import br.com.sgee.gestaodeequipamentos.dto.TipoEquipamentoRequest;
+import br.com.sgee.gestaodeequipamentos.mapper.FuncionarioMapper;
 import br.com.sgee.gestaodeequipamentos.model.*;
 import br.com.sgee.gestaodeequipamentos.model.enums.StatusEmprestimo;
 import br.com.sgee.gestaodeequipamentos.model.enums.StatusEquipamento;
+import br.com.sgee.gestaodeequipamentos.model.enums.TipoHistorico;
 import br.com.sgee.gestaodeequipamentos.repository.EmprestimoRepository;
 import br.com.sgee.gestaodeequipamentos.repository.EquipamentoRepository;
 import br.com.sgee.gestaodeequipamentos.repository.FuncionarioRepository;
 import br.com.sgee.gestaodeequipamentos.repository.TipoEquipamentoRepository;
 import lombok.Builder;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +23,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Builder
+@Data
 public class EmprestimoService {
 
     private final EmprestimoRepository emprestimoRepository;
@@ -27,6 +31,7 @@ public class EmprestimoService {
     private final FuncionarioService funcionarioService;
     private final HistoricoService historicoService;
     private final TipoEquipamentoRepository tipoEquipamentoRepository;
+    private final FuncionarioMapper funcionarioMapper;
 
 
     public List<Emprestimo> criarEmprestimo(EmprestimoRequest request, TipoEquipamentoRequest tipoEquipamentoRequest) {
@@ -66,8 +71,9 @@ public class EmprestimoService {
 
                 Historico historico = new Historico();
                 historico.setEmprestimo(emprestimo);
-                historico.setFuncionario(funcionario);
+                historico.setFuncionario(funcionarioMapper.funcionarioMongo(funcionario));
                 historico.setEquipamento(equipamento);
+                historico.setOperacao(TipoHistorico.EMPRESTIMO);
 
 
                 historicoService.salvar(historico);

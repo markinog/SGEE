@@ -17,6 +17,8 @@ public class TipoEquipamentoService {
         return tipoEquipamentoRepository.findAll();
     }
 
+
+
     public TipoEquipamento buscarPorTipoId(Integer idTipoEquipamento){
         return tipoEquipamentoRepository.findById(idTipoEquipamento).orElse(null);
     }

@@ -19,8 +19,11 @@ import java.util.List;
 @RequestMapping("emprestimo")
 public class EmprestimoController {
 
-    @Autowired
     public EmprestimoService service;
+
+    public EmprestimoController(EmprestimoService service){
+        this.service = service;
+    }
 
 
     @PostMapping

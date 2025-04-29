@@ -1,15 +1,26 @@
 package br.com.sgee.gestaodeequipamentos.mapper;
 
 import br.com.sgee.gestaodeequipamentos.dto.TipoEquipamentoRequest;
+
+import br.com.sgee.gestaodeequipamentos.dto.TipoEquipamentoResponse;
 import br.com.sgee.gestaodeequipamentos.model.TipoEquipamento;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
+import org.springframework.stereotype.Component;
 
-@Mapper(componentModel = "spring")
-public interface TipoEquipamentoMapper {
+@Component
+public class TipoEquipamentoMapper {
 
-    @Mapping(target = "nomeEquipamento", source = "request.nomeEquipamento")
-    TipoEquipamento toTipoEquipamento(TipoEquipamentoRequest request);
+    public TipoEquipamento toTipoEquipamento(TipoEquipamentoRequest request) {
+        return TipoEquipamento.builder()
+                .nomeEquipamento(request.getNomeEquipamento())
+                .build();
+    }
 
-    TipoEquipamentoRequest toRequest(TipoEquipamento tipoEquipamento);
+    public TipoEquipamentoResponse toResponse(TipoEquipamento tipoEquipamento) {
+        return TipoEquipamentoResponse.builder()
+                .idTipoEquipamento(tipoEquipamento.getIdTipoEquipamento().longValue())
+                .nomeEquipamento(tipoEquipamento.getNomeEquipamento())
+                .build();
+    }
+
+
 }

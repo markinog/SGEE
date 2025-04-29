@@ -24,6 +24,7 @@ public class FuncionarioController {
     @PostMapping
     public ResponseEntity<FuncionarioResponse> salvar(@RequestBody FuncionarioRequest request){
         return ResponseEntity.ok(service.salvar(request));
+
     }
 
     @GetMapping("/{id}")

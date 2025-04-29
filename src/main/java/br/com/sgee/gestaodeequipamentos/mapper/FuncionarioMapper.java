@@ -3,6 +3,7 @@ package br.com.sgee.gestaodeequipamentos.mapper;
 import br.com.sgee.gestaodeequipamentos.dto.FuncionarioRequest;
 import br.com.sgee.gestaodeequipamentos.dto.FuncionarioResponse;
 import br.com.sgee.gestaodeequipamentos.model.Funcionario;
+import br.com.sgee.gestaodeequipamentos.model.Mongo.FuncionarioMongo;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -32,5 +33,16 @@ public class FuncionarioMapper {
                 .map(this::toResponse)
                 .toList();
     }
+
+    public FuncionarioMongo funcionarioMongo(Funcionario funcionario){
+        return FuncionarioMongo.builder()
+                .funcionarioId(funcionario.getFuncionarioId())
+                .matricula(funcionario.getMatricula())
+                .nome(funcionario.getNome())
+                .status(funcionario.getStatus())
+                .build();
+    }
+
+
 
 }
