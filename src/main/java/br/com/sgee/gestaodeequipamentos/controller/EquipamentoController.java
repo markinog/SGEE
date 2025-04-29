@@ -16,7 +16,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EquipamentoController {
 
-    private final EquipamentoService equipamentoService;
+    private EquipamentoService equipamentoService;
+
+    public EquipamentoController(EquipamentoService service){
+        service = equipamentoService;
+    }
 
     @PostMapping
     public ResponseEntity<EquipamentoResponse> criarEquipamento(@RequestBody EquipamentoRequest request) {

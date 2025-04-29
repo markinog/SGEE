@@ -1,10 +1,7 @@
 package br.com.sgee.gestaodeequipamentos.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 
 @Getter
@@ -12,6 +9,7 @@ import lombok.ToString;
 @ToString
 @Entity
 @Table(name = "tipo_equipamento")
+@Builder
 public class TipoEquipamento {
 
     @Id

@@ -3,6 +3,7 @@ package br.com.sgee.gestaodeequipamentos.mapper;
 import br.com.sgee.gestaodeequipamentos.dto.EquipamentoRequest;
 import br.com.sgee.gestaodeequipamentos.dto.EquipamentoResponse;
 import br.com.sgee.gestaodeequipamentos.model.Equipamento;
+import br.com.sgee.gestaodeequipamentos.model.Mongo.EquipamentoMongo;
 import br.com.sgee.gestaodeequipamentos.model.enums.StatusEquipamento;
 import org.springframework.stereotype.Component;
 
@@ -19,6 +20,14 @@ public class EquipamentoMapper {
     public EquipamentoResponse toResponse(Equipamento equipamento) {
         return EquipamentoResponse.builder()
                 .idEquipamento(equipamento.getIdEquipamento())
+                .build();
+    }
+
+    public EquipamentoMongo equipamentoMongo(Equipamento equipamento){
+        return EquipamentoMongo.builder()
+                .idEquipamento(equipamento.getIdEquipamento())
+                .nomeEquipamento(equipamento.getNomeEquipamento())
+                .statusEquipamento(equipamento.getStatusEquipamento())
                 .build();
     }
 }
