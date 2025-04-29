@@ -4,6 +4,7 @@ import br.com.sgee.gestaodeequipamentos.dto.EmprestimoRequest;
 import br.com.sgee.gestaodeequipamentos.model.Emprestimo;
 import br.com.sgee.gestaodeequipamentos.model.Equipamento;
 import br.com.sgee.gestaodeequipamentos.model.Funcionario;
+import br.com.sgee.gestaodeequipamentos.model.Historico;
 import br.com.sgee.gestaodeequipamentos.model.enums.StatusEmprestimo;
 import br.com.sgee.gestaodeequipamentos.model.enums.StatusEquipamento;
 import br.com.sgee.gestaodeequipamentos.repository.EmprestimoRepository;
@@ -50,6 +51,13 @@ public class EmprestimoService {
                     emprestimo.setStatusEmprestimo(StatusEmprestimo.ANDAMENTO);
                     emprestimo.setEquipamento(equipamento.getIdEquipamento());
                     emprestimos.add(emprestimoRepository.save(emprestimo));
+
+                    Historico historico = new Historico();
+                    historico.setEmprestimo(emprestimo);
+                    historico.setFuncionario(funcionario);
+                    historico.setEquipamento(equipamento);
+
+            historicoService.salvar(historico);
 
         }
 
