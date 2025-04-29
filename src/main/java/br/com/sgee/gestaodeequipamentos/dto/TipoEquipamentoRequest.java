@@ -8,7 +8,7 @@ import lombok.Setter;
 
 public class TipoEquipamentoRequest {
 
-    private String nome;
+    private String nomeEquipamento;
     private int quantidadeTotal;
     private int quantidadeDisponivel;
 
